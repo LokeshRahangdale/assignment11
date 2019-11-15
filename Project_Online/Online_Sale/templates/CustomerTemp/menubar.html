@@ -1,0 +1,23 @@
+<ul>
+  <li><a class="active" href="#">Home</a></li>
+  <!-- <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li> -->
+  <li><a href="{% url 'Register' %}">Sign Up</a></li>
+  <li><a href="{% url 'Login' %}">Login</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Marchant</a>
+    <div class="dropdown-content">
+      <a href="">Add Marchant</a>
+    </div>
+  </li>
+<li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Sales</a>
+    <div class="dropdown-content">
+      <a href="#">Daily</a>
+      <a href="#">WEEKLY</a>
+      <a href="#">MONTHLY</a>
+      <a href="#">YEARLY</a>
+    </div>
+  </li>
+</ul>

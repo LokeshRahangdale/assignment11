@@ -1,0 +1,60 @@
+
+{% include 'menu.html' %}
+
+
+<body>
+
+    <form action="{% url 'saveproduct' %}" method="post">
+        {% csrf_token %}
+    <table align="center">
+        <tr><th colspan="2"><h1>ADD NEW PRODUCT</h1></th></tr>
+        <tr>
+            <th colspan="2">
+                {% if massage %}
+                    <h1> {{massage}} </h1>
+                {% endif %}</th>
+            </tr>
+
+        <tr>
+            <th>Product Number</th>
+            <th><input type="number" required name="pno"></th>
+        </tr>
+        <tr>
+            <th>Product Name</th>
+            <th><input type="text" required name="name"></th>
+        </tr>
+        <tr>
+            <th>Product Price</th>
+            <th><input type="number" required name="price"></th>
+        </tr>
+        <tr>
+            <th>Quantity</th>
+            <th><input type="number" required name="quantity"></th>
+        </tr>
+        <tr>
+            <th colspan="2"><button type="submit">SAVE</button></th>
+        </tr>
+        
+    </table>
+    {% if data %}
+    <table align="center" width="350" border="2">
+        <tr><th colspan="4">Product Details</th></tr>
+        <tr>
+            <th>ID</th>
+            <th>Product NAME</th>
+            <th>Product Price</th>
+            <th>Quantity</th>
+        </tr>
+           {% for x in data %}
+            <tr>
+               <th>{{x.pk}}</th>
+               <th>{{ x.fields.p_name }}</th>
+               <th>{{ x.fields.p_price }}</th>
+               <th>{{x.fields.p_quantity}}</th>
+           </tr>
+           {% endfor %}
+    </table>
+    {% endif %}
+    </form>
+
+</body>
